@@ -1,38 +1,637 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hy">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Easy Cards</title>
-<link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Մեգա Վեբ-Խաղ Ուսանողների Համար</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #f8fafc;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
+        h1 { color: #0f172a; margin-bottom: 5px; text-align: center; }
+        .info { color: #475569; margin-bottom: 25px; text-align: center; max-width: 600px; line-height: 1.4; }
+
+        /* Խաղի կոնտեյներ */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px 0;
+        }
+
+        /* Քարտի ոճեր */
+        .flashcard {
+            height: 240px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .flashcard:hover .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .front, .back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            border-radius: 12px;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+        }
+
+        /* Գունային բաժանում ըստ թեմաների */
+        .html-card .front { background: linear-gradient(135deg, #e44d26, #f16529); color: white; }
+        .css-card .front { background: linear-gradient(135deg, #214ce5, #2965f1); color: white; }
+        .net-card .front { background: linear-gradient(135deg, #8b5cf6, #6d28d9); color: white; }
+        
+        .back {
+            background-color: #ffffff;
+            color: #1e293b;
+            transform: rotateY(180deg);
+            border: 2px solid #e2e8f0;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            text-align: left;
+        }
+
+        .badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: rgba(255,255,255,0.2);
+            padding: 3px 8px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            margin: 0;
+            line-height: 1.4;
+            text-align: center;
+        }
+        
+        p {
+            margin: 0;
+        }
+    </style>
 </head>
 <body>
 
-<h1 style="text-align:center;">Simple Course Cards</h1>
+    <h1>🚀 Վեբ Ծրագրավորման Մեգա Քարտեր (38 Քարտ)</h1>
+    <p class="info">Պահեք մկնիկը քարտի վրա պատասխանը տեսնելու համար։<br>
+    🧡 Նարնջագույն = HTML | 💙 Կապույտ = CSS | 💜 Մանուշակագույն = Network/Hosting</p>
 
-<!-- Grid container -->
-<div class="card-grid">
+    <div class="cards-grid">
 
-  <!-- Card 1 -->
-  <div class="card">
-    <h3>HTML Basics</h3>
-    <p>Learn the structure of web pages.</p>
-  </div>
+        <!-- Քարտ 1 -->
+        <div class="flashcard html-card">
+            <div class="card-inner">
+                <div class="front">
+                    <span class="badge">HTML</span>
+                    <h3>Ո՞ր թեգերն են տեքստը դարձնում ԹԱՎ (Bold):</h3>
+                </div>
+                <div class="back">
+                    <p><strong>&lt;strong&gt;</strong> և <strong>&lt;b&gt;</strong> թեգերը: &lt;strong&gt;-ը նաև ցույց է տալիս կարևորություն որոնողական համակարգերի համար:</p>
+                </div>
+            </div>
+        </div>
 
-  <!-- Card 2 -->
-  <div class="card">
-    <h3>CSS Styling</h3>
-    <p>Style web pages with colors and layouts.</p>
-  </div>
+        <!-- Քարտ 2 -->
+        <div class="flashcard html-card">
+            <div class="card-inner">
+                <div class="front">
+                    <span class="badge">HTML</span>
+                    <h3>Ի՞նչ են նշանակում &lt;tr&gt;, &lt;th&gt;, &lt;td&gt; թեգերը աղյուսակում:</h3>
+                </div>
+                <div class="back">
+                    <p><b>&lt;tr&gt;</b> - Աղյուսակի տող (Row)<br><b>&lt;th&gt;</b> - Գլխագիր սյունակ (Header)<br><b>&lt;td&gt;</b> - Սովորական տվյալի սյունակ (Data):</p>
+                </div>
+            </div>
+        </div>
 
-  <!-- Card 3 -->
-  <div class="card">
-    <h3>JavaScript</h3>
-    <p>Add interactivity to your website.</p>
-  </div>
+        <!-- Քարտ 3 -->
+        <div class="flashcard html-card">
+            <div class="card-inner">
+                <div class="front">
+                    <span class="badge">HTML</span>
+                    <h3>Ինչո՞վ է տարբերվում input-ի "radio" տեսակը "checkbox"-ից:</h3>
+                </div>
+                <div class="back">
+                    <p><b>Radio</b>-ն թույլ է տալիս ընտրել միայն ՄԵԿ տարբերակ խմբից, իսկ <b>Checkbox</b>-ով կարող եք նշել ՄԻ ՔԱՆԻ տարբերակ միաժամանակ:</p>
+                </div>
+            </div>
+        </div>
 
-</div>
+        <!-- Քարտ 4 -->
+        <div class="flashcard css-card">
+            <div class="card-inner">
+                <div class="front">
+                    <span class="badge">CSS</span>
+                    <h3>Ի՞նչ է անում "position: absolute;"-ը:</h3>
+                </div>
+                <div class="back">
+                    <p>Էլեմենտին հանում է էջի ընդհանուր հոսքից և դիրքավորում իրեն ամենամոտ "relative" ունեցող ծնողի նկատմամբ:</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Քարտ 5 -->
+        <div class="flashcard css-card">
+            <div class="card-inner">
+                <div class="front">
+                    <span class="badge">CSS</span>
+                    <h3>Ո՞ր դիրքավորումն է էլեմենտը մեխում էկրանին սքրոլի ժամանակ:</h3>
+                </div>
+                <div class="back">
+                    <p><b>position: fixed;</b> հատկությունը: Այն ամրացնում է տարրը էկրանի (viewport) նկատմամբ (օր.՝ կպչուն վերևի մենյուներ):</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Քարտ 6 -->
+        <div class="flashcard css-card">
+            <div class="card-inner">
+                <div class="front">
+                    <span class="badge">CSS</span>
+                    <h3>Ի՞նչ տարբերություն կա justify-content-ի և align-items-ի միջև Flexbox-ում:</h3>
+                </div>
+                <div class="back">
+                    <p><b>justify-content</b>-ը դասավորում է տարրերը գլխավոր առանցքով (հորիզոնական), իսկ <b>align-items</b>-ը՝ ուղղահայաց առանցքով:</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Քարտ 7 -->
+        <div class="flashcard css-card">
+            <div class="card-inner">
+                <div class="front">
+                    <span class="badge">CSS</span>
+                    <h3>Ինչպե՞ս էլեմենտը դարձնել կատարյալ շրջան:</h3>
+                </div>
+                <div class="back">
+                    <p>Էլեմենտի լայնությունն ու բարձրությունը պետք է լինեն հավասար (width=height), և պետք է կիրառել <b>border-radius: 50%;</b></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Քարտ 8 -->
+        <div class="flashcard html-card">
+            <div class="card-inner">
+                <div class="front">
+                    <span class="badge">HTML</span>
+                    <h3>Ո՞ր թեգն է նախատեսված մեծ, բազմատող տեքստ գրելու համար (օր.՝ նամակ):</h3>
+                </div>
+                <div class="back">
+                    <p><b>&lt;textarea&gt;</b> թեգը: Ի տարբերություն սովորական input-ի, սրա չափսերը օգտատերը կարող է մեծացնել/փոքրացնել բրաուզերում:</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Քարտ 9 -->
+        <div class="flashcard css-card">
+            <div class="card-inner">
+                <div class="front">
+                    <span class="badge">CSS</span>
+                    <h3>Ի՞նչ է անում "transition: 0.3s;" հատկությունը:</h3>
+                </div>
+                <div class="back">
+                    <p>Ապահովում է սահուն անցում էֆեկտների միջև (օրինակ՝ երբ մկնիկը պահում ենք կոճակի վրա և գույնը սահուն է փոխվում)։</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Քարտ 10 -->
+        <div class="flashcard css-card">
+            <div class="card-inner">
+                <div class="front">
+                    <span class="badge">CSS</span>
+                    <h3>Ինչպե՞ս հեռացնել հղումների (&lt;a&gt;) տակի գիծը:</h3>
+                </div>
+                <div class="back">
+                    <p>CSS-ում կիրառելով <b>text-decoration: none;</b> հատկությունը:</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Քարտ 11 -->
+        <div class="flashcard html-card">
+            <div class="card-inner">
+                <div class="front">
+                    <span class="badge">HTML</span>
+                    <h3>Ինչպե՞ս ստեղծել բացվող ընտրության ցուցակ (Dropdown):</h3>
+                </div>
+                <div class="back">
+                    <p>Օգտագործելով <b>&lt;select&gt;</b> կոնտեյները, իսկ ներսի տարբերակները սահմանելով <b>&lt;option&gt;</b> թեգերով:</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Քարտ 12 -->
+        <div class="flashcard css-card">
+            <div class="card-inner">
+                <div class="front">
+                    <span class="badge">CSS</span>
+                    <h3>Ի՞նչ է նշանակում "@media (max-width: 768px)":</h3>
+                </div>
+                <div class="back">
+                    <p>Սա մեդիա հարցում է: Ներսի CSS կոդը կաշխատի միայն այն սարքերի վրա, որոնց էկրանի լայնությունը 768px կամ ավելի փոքր է (Պլանշետներ/Հեռախոսներ):</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Քարտ 13 -->
+        <div class="flashcard css-card">
+            <div class="card-inner">
+                <div class="front">
+                    <span class="badge">CSS</span>
+                    <h3>Ի՞նչ է անում "position: relative;"-ը:</h3>
+                </div>
+                <div class="back">
+                    <p>Էլեմենտը շարժում է իր նախնական դիրքի նկատմամբ (top, left-ով), բայց էջում իր տեղը պահպանվում է։ Ծառայում է որպես հենակետ absolute էլեմենտների համար։</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Քարտ 14 -->
+        <div class="flashcard css-card">
+            <div class="card-inner">
+                <div class="front">
+                    <span class="badge">CSS</span>
+                    <h3>Ինչպե՞ս է աշխատում "position: sticky;"-ն:</h3>
+                </div>
+                <div class="back">
+                    <p>Սկզբում իրեն պահում է սովորականի պես (relative), բայց երբ էջը սքրոլ անելիս հասնում է նշված սահմանին (օր.՝ top: 0), «կպչում է» էկրանին (fixed)։</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Քարտ 15 -->
+        <div class="flashcard css-card">
+            <div class="card-inner">
+                <div class="front">
+                    <span class="badge">CSS</span>
+                    <h3>Ո՞րն է գլխավոր տարբերությունը "display: block;" և "inline;"-ի միջև:</h3>
+                </div>
+                <div class="back">
+                    <p><b>block</b>-ը սկսվում է նոր տողից և զբաղեցնում ողջ լայնությունը (div, p)։ <b>inline</b>-ը չի սկսվում նոր տողից, զբաղեցնում է միայն իր տեքստի չափով տեղ (span, a)։</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Քարտ 16 -->
+        <div class="flashcard css-card">
+            <div class="card-inner">
+                <div class="front">
+                    <span class="badge">CSS</span>
+                    <h3>Ի՞նչ է տալիս "display: inline-block;" հատկությունը:</h3>
+                </div>
+                <div class="back">
+                    <p>Էլեմենտը մնում է տողի մեջ (ինչպես inline-ը), բայց նրա վրա սկսում են աշխատել չափսերը՝ <b>width</b>, <b>height</b>, <b>margin</b> և <b>padding</b> (ինչպես block-ը)։</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Քարտ 17 -->
+        <div class="flashcard css-card">
+            <div class="card-inner">
+                <div class="front">
+                    <span class="badge">CSS</span>
+                    <h3>Ինչո՞վ է տարբերվում "display: none;"-ը "visibility: hidden;"-ից:</h3>
+                </div>
+                <div class="back">
+                    <p><b>display: none</b>-ը լիովին ջնջում է էլեմենտը էջից (տեղ չի զբաղեցնում)։ <b>visibility: hidden</b>-ը թաքցնում է տարրը, բայց նրա դատարկ տեղը էջում մնում է։</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Քարտ 18 -->
+        <div class="flashcard css-card">
+            <div class="card-inner">
+                <div class="front">
+                    <span class="badge">CSS</span>
+                    <h3>Ի՞նչ է CSS Grid-ը (display: grid;):</h3>
+                </div>
+                <div class="back">
+                    <p>Երկչափ (2D) դասավորության համակարգ է, որը թույլ է տալիս էջի տարածքը բաժանել ճկուն տողերի և սյունակների (ցանցի)։</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- NEW Քարտ 19 -->
+        <div class="flashcard html-card">
+            <div class="card-inner">
+                <div class="front">
+                    <span class="badge">HTML</span>
+                    <h3>Ի՞նչ է անում input-ի "placeholder" ատրիբուտը:</h3>
+                </div>
+                <div class="back">
+                    <p>Ցույց է տալիս թույլ մոխրագույն հուշող տեքստ դաշտի ներսում, որն անհետանում է, երբ օգտատերը սկսում է որևէ բան տպել։</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- NEW Քարտ 20 -->
+        <div class="flashcard html-card">
+            <div class="card-inner">
+                <div class="front">
+                    <span class="badge">HTML</span>
+                    <h3>Ի՞նչ է անում input-ի "value" ատրիբուտը:</h3>
+                </div>
+                <div class="back">
+                    <p>Սահմանում է ներմուծման դաշտի սկզբնական (կանխադրված) արժեքը, որը երևում է էջը բացելիս։</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- NEW Քարտ 21 -->
+        <div class="flashcard html-card">
+            <div class="card-inner">
+                <div class="front">
+                    <span class="badge">HTML</span>
+                    <h3>Ի՞նչ է անում "disabled" ատրիբուտը input-ի մեջ:</h3>
+                </div>
+                <div class="back">
+                    <p>Արգելափակում է դաշտը կամ կոճակը. օգտատերը չի կարողանում սեղմել դրա վրա կամ տեքստ փոփոխել։</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- NEW Քարտ 22 -->
+        <div class="flashcard net-card">
+            <div class="card-inner">
+                <div class="front">
+                    <span class="badge">HOSTING</span>
+                    <h3>Պարզ խոսքերով՝ ի՞նչ է Հոսթինգը (Hosting):</h3>
+                </div>
+                <div class="back">
+                    <p>Դա մի հզոր համակարգիչ է (սերվեր), որը միացված է համացանցին 24/7, և որտեղ վարձակալում ենք տարածք՝ մեր կայքի ֆայլերը պահելու համար։</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- NEW Քարտ 23 -->
+        <div class="flashcard net-card">
+            <div class="card-inner">
+                <div class="front">
+                    <span class="badge">DOMAIN</span>
+                    <h3>Պարզ խոսքերով՝ ի՞նչ է Դոմենը (Domain):</h3>
+                </div>
+                <div class="back">
+                    <p>Դա կայքի անվանումն է կամ հասցեն (օր.՝ google.com), որը մարդիկ հավաքում են բրաուզերում՝ կայքը գտնելու համար։</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- NEW Քարտ 24 -->
+        <div class="flashcard css-card">
+            <div class="card-inner">
+                <div class="front">
+                    <span class="badge">CSS FLEX</span>
+                    <h3>Ի՞նչ է անում "flex-direction" հատկությունը:</h3>
+                </div>
+                <div class="back">
+                    <p>Որոշում է flex-տարրերի դասավորության ուղղությունը. <b>row</b> (հորիզոնական տողով՝ լռելյայն) կամ <b>column</b> (ուղղահայաց սյունակով)։</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- NEW Քարտ 25 -->
+        <div class="flashcard css-card">
+            <div class="card-inner">
+                <div class="front">
+                    <span class="badge">CSS FLEX/GRID</span>
+                    <h3>Ի՞նչ է անում "gap" հատկությունը:</h3>
+                </div>
+                <div class="back">
+                    <p>Սահմանում է հստակ և հավասար հեռավորություն (բացատ) flex կամ grid կոնտեյների ներսի էլեմենտների միջև։</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- NEW Քարտ 26 -->
+        <div class="flashcard css-card">
+            <div class="card-inner">
+                <div class="front">
+                    <span class="badge">CSS GRID</span>
+                    <h3>Ի՞նչ է սահմանում "grid-template-columns"-ը:</h3>
+                </div>
+                <div class="back">
+                    <p>Որոշում է grid ցանցի սյունակների քանակն ու չափսերը (օր.՝ `repeat(3, 1fr)` ստեղծում է 3 հավասար սյունակ)։</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- NEW Քարտ 27 -->
+        <div class="flashcard css-card">
+            <div class="card-inner">
+                <div class="front">
+                    <span class="badge">CSS GRID</span>
+                    <h3>Ի՞նչ է անում "grid-column: span 2;" հրամանը:</h3>
+                </div>
+                <div class="back">
+                    <p>Grid-ի ներսի էլեմենտին ստիպում է տարածվել և զբաղեցնել 2 սյունակի տեղ։</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- NEW Քարտ 28 -->
+        <div class="flashcard css-card">
+            <div class="card-inner">
+                <div class="front">
+                    <span class="badge">CSS ALIGN</span>
+                    <h3>Ինչպե՞ս կենտրոնացնել տեքստը բլոկի ներսում:</h3>
+                </div>
+                <div class="back">
+                    <p>Օգտագործելով CSS-ի <b>text-align: center;</b> հատկությունը։ Այն աշխատում է տեքստի և inline տարրերի վրա։</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- NEW Քարտ 29 -->
+        <div class="flashcard css-card">
+            <div class="card-inner">
+                <div class="front">
+                    <span class="badge">CSS ALIGN</span>
+                    <h3>Ինչպե՞ս կենտրոնացնել բլոկային (block) էլեմենտը:</h3>
+                </div>
+                <div class="back">
+                    <p>Էլեմենտին պետք է տալ ֆիքսված լայնություն (width) և կիրառել <b>margin: 0 auto;</b> հատկությունը։</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- NEW Քարտ 30 -->
+        <div class="flashcard css-card">
+            <div class="card-inner">
+                <div class="front">
+                    <span class="badge">CSS ALIGN</span>
+                    <h3>Ինչպե՞ս Flexbox-ով էլեմենտը բերել կատարյալ կենտրոն (X և Y առանցքներով):</h3>
+                </div>
+                <div class="back">
+                    <p>Ծնող տարրին պետք է տալ՝<br><b>display: flex;<br>justify-content: center;<br>align-items: center;</b></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- NEW Քարտ 31 -->
+        <div class="flashcard css-card">
+            <div class="card-inner">
+                <div class="front">
+                    <span class="badge">CSS ALIGN</span>
+                    <h3>Ինչպե՞ս տանել տեքստը կամ inline տարրերը դեպի ԱՋ:</h3>
+                </div>
+                <div class="back">
+                    <p>Կիրառելով CSS-ի <b>text-align: right;</b> հատկությունը։</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- NEW Քարտ 32 -->
+        <div class="flashcard css-card">
+            <div class="card-inner">
+                <div class="front">
+                    <span class="badge">CSS ALIGN</span>
+                    <h3>Ինչպե՞ս առանձին բլոկային (block) էլեմենտը տանել դեպի ԱՋ եզր:</h3>
+                </div>
+                <div class="back">
+                    <p>Կիրառելով <b>margin-left: auto;</b> հատկությունը։ Այն ձախ կողմից առավելագույն ազատ տարածություն է ստեղծում և հրում բլոկը աջ։</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- NEW Քարտ 33 -->
+        <div class="flashcard css-card">
+            <div class="card-inner">
+                <div class="front">
+                    <span class="badge">CSS FLEX</span>
+                    <h3>Ինչպե՞ս Flexbox-ում բոլոր տարրերը տանել դեպի ԱՋ:</h3>
+                </div>
+                <div class="back">
+                    <p>Ծնող կոնտեյների վրա կիրառելով <b>justify-content: flex-end;</b> հատկությունը։</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- NEW Քարտ 34 -->
+        <div class="flashcard html-card">
+            <div class="card-inner">
+                <div class="front">
+                    <span class="badge">HTML LINK</span>
+                    <h3>Ինչպե՞ս ստիպել հղմանը (&lt;a&gt;), որ այն բացվի ՆՈՐ էջում (tab):</h3>
+                </div>
+                <div class="back">
+                    <p>Հղման թեգի ներսում պետք է ավելացնել <b>target="_blank"</b> ատրիբուտը։</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- NEW Քարտ 35 -->
+        <div class="flashcard html-card">
+            <div class="card-inner">
+                <div class="front">
+                    <span class="badge">HTML LINK</span>
+                    <h3>Ի՞նչ է նշանակում հղման "href" ատրիբուտը:</h3>
+                </div>
+                <div class="back">
+                    <p>Hypertext Reference. Այն սահմանում է այն վեբ-հասցեն (URL) կամ ֆայլի ճանապարհը, թե ուր է տանելու հղումը սեղմելիս։</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- NEW Քարտ 36 -->
+        <div class="flashcard html-card">
+            <div class="card-inner">
+                <div class="front">
+                    <span class="badge">HTML IMAGE</span>
+                    <h3>Ի՞նչ է նշանակում նկարի &lt;img&gt; թեգի "src" ատրիբուտը:</h3>
+                </div>
+                <div class="back">
+                    <p>Source (Աղբյուր)։ Նշում է նկարի ֆայլի ճշգրիտ տեղը համակարգչում կամ համացանցային հղումը։</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- NEW Քարտ 37 -->
+        <div class="flashcard html-card">
+            <div class="card-inner">
+                <div class="front">
+                    <span class="badge">HTML IMAGE</span>
+                    <h3>Ինչո՞ւ է պարտադիր նկարի "alt" ատրիբուտը:</h3>
+                </div>
+                <div class="back">
+                    <p>Այն պարունակում է նկարի տեքստային նկարագրությունը, որը երևում է, եթե նկարը չբեռնվի, օգնում է տեսողական խնդիրներ ունեցողներին և SEO-ին։</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- NEW Քարտ 38 -->
+        <div class="flashcard html-card">
+            <div class="card-inner">
+                <div class="front">
+                    <span class="badge">HTML</span>
+                    <h3>Որո՞նք են հիմնական իմաստային (semantic) թեգերը կայքի կառուցվածքի համար:</h3>
+                </div>
+                <div class="back">
+                    <p><b>&lt;header&gt;</b> (գլխամաս), <b>&lt;nav&gt;</b> (նավիգացիա), <b>&lt;main&gt;</b> (հիմնական բովանդակություն), <b>&lt;footer&gt;</b> (կայքի ներքևի մաս)։</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- NEW Քարտ 17: display: none vs visibility: hidden -->
+        <div class="flashcard css-card">
+            <div class="card-inner">
+                <div class="front">
+                    <span class="badge">CSS</span>
+                    <h3>Ինչո՞վ է տարբերվում "display: none;"-ը "visibility: hidden;"-ից:</h3>
+                </div>
+                <div class="back">
+                    <p><b>display: none</b>-ը լիովին ջնջում է էլեմենտը էջի կառուցվածքից (տեղ չի զբաղեցնում)։ <b>visibility: hidden</b>-ը թաքցնում է տարրը, բայց նրա դատարկ տեղը էջում մնում է անփոփոխ։</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Քարտ 10: CSS Text-decoration -->
+        <div class="flashcard css-card">
+            <div class="card-inner">
+                <div class="front">
+                    <span class="badge">CSS</span>
+                    <h3>Ինչպե՞ս հեռացնել հղումների (&lt;a&gt;) տակի գիծը:</h3>
+                </div>
+                <div class="back">
+                    <p>CSS-ում կիրառելով <b>text-decoration: none;</b> հատկությունը:</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
 
 </body>
 </html>
